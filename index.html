@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anirudh Miriyala | Machine Learning & AR Developer</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #0f0f0f;
+        color: #e0e0e0;
+        line-height: 1.7;
+      }
+      .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 0 20px;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: 3.2rem;
+      }
+      h2 {
+        font-size: 2.5rem;
+        border-bottom: 3px solid #00a79d;
+        padding-bottom: 10px;
+      }
+      section {
+        padding: 60px 0;
+      }
+      a {
+        text-decoration: none;
+        color: #00a79d;
+      }
+      .navbar {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background: rgba(15, 15, 15, 0.85);
+        backdrop-filter: blur(10px);
+        padding: 1rem 0;
+        z-index: 1000;
+      }
+      .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .navbar .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #ffffff;
+      }
+      .navbar ul {
+        display: flex;
+        list-style: none;
+      }
+      .navbar ul li a {
+        color: #e0e0e0;
+        padding: 0.5rem 1rem;
+        transition: color 0.3s;
+      }
+      .navbar ul li a:hover {
+        color: #00a79d;
+      }
+      #hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      #hero .subtitle {
+        font-size: 1.25rem;
+        max-width: 650px;
+        margin-bottom: 25px;
+        color: #bdbdbd;
+      }
+      .cta-button {
+        display: inline-block;
+        background: #00a79d;
+        color: #ffffff;
+        padding: 12px 30px;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: background 0.3s, transform 0.3s;
+      }
+      .cta-button:hover {
+        background: #00897b;
+        transform: translateY(-3px);
+      }
+      #about .about-content {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+      }
+      #about .about-text {
+        flex: 2;
+      }
+      #about .profile-pic {
+        flex: 1;
+        max-width: 250px;
+        border-radius: 50%;
+        border: 4px solid #00a79d;
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+      }
+      .skill-category {
+        background: #1e1e1e;
+        padding: 25px;
+        border-radius: 8px;
+        border-left: 5px solid #00a79d;
+      }
+      .skill-category h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+      }
+      .skill-category ul {
+        list-style: none;
+      }
+      .skill-category ul li {
+        padding: 5px 0;
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+      .project-card {
+        background: #1e1e1e;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba(0, 167, 157, 0.2);
+      }
+      .project-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .project-content {
+        padding: 25px;
+      }
+      .project-content h3 {
+        font-size: 1.4rem;
+      }
+      .project-content p {
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+      }
+      .project-tags {
+        margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .project-tags span {
+        background: #333;
+        color: #e0e0e0;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+      }
+      .project-links a {
+        margin-right: 20px;
+        font-weight: 600;
+      }
+      #contact {
+        text-align: center;
+      }
+      .contact-links {
+        margin-top: 30px;
+      }
+      .contact-links a {
+        font-size: 1.2rem;
+        margin: 0 20px;
+        transition: color 0.3s;
+      }
+      .contact-links a:hover {
+        color: #ffffff;
+      }
+      footer {
+        text-align: center;
+        padding: 20px 0;
+        background: #1e1e1e;
+        margin-top: 40px;
+      }
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+        h2 {
+          font-size: 2rem;
+        }
+        .navbar .container {
+          flex-direction: column;
+        }
+        .navbar ul {
+          padding-top: 10px;
+        }
+        #hero {
+          padding-top: 80px;
+        }
+        #about .about-content {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="#" class="logo">Anirudh Miriyala</a>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="hero">
+      <h1>Building Intelligent & Immersive Experiences</h1>
+      <p class="subtitle">
+        A developer specializing in Machine Learning and Augmented Reality, with
+        a foundation in full-stack engineering. I design, build, and deploy
+        data-driven applications and engaging AR content.
+      </p>
+      <a href="#projects" class="cta-button">View My Work</a>
+    </section>
+
+    <main class="container">
+      <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              As a third-year Computer Science undergraduate at NMIT
+              concurrently pursuing a diploma in Data Science from IIT Madras, I
+              occupy a unique space between analytical engineering and creative
+              technology. My passion lies in using robust software principles to
+              bring intelligent and interactive ideas to life.
+            </p>
+            <p>
+              My core strength is the ability to **train and deploy machine
+              learning models** for complex tasks like fraud detection and image
+              processing. I complement this with skills in AR development, where
+              I create engaging user experiences in Lens Studio and Blender. My
+              full-stack knowledge in the MERN stack (MongoDB, Express, React,
+              Node.js) allows me to build and connect these diverse technologies
+              into cohesive, functional applications. I am actively seeking
+              challenging opportunities where I can contribute to all stages of
+              the product development lifecycle.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="skills">
+        <h2>Core Competencies</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Machine Learning & Data Science</h3>
+            <ul>
+              <li>Model Training & Evaluation</li>
+              <li>Image Processing (Deep Learning)</li>
+              <li>Python (NumPy, Pandas, Scikit-learn)</li>
+              <li>R Programming</li>
+              <li>Data Visualization (Matplotlib, Seaborn)</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Full-Stack Development</h3>
+            <ul>
+              <li>React.js</li>
+              <li>Node.js & Express.js</li>
+              <li>MongoDB & MySQL</li>
+              <li>JavaScript & Java</li>
+              <li>HTML5 & CSS3</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Augmented Reality & 3D Design</h3>
+            <ul>
+              <li>Lens Studio</li>
+              <li>Blender</li>
+              <li>Figma (UI/UX)</li>
+              <li>3D Asset Integration</li>
+              <li>AR Content Creation</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="projects">
+        <h2>Project Portfolio</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img
+              src="https://via.placeholder.com/400x200.png/00A79D/FFFFFF?text=Vinayaka+Chaturthi+Lens"
+              alt="Vinayaka Chaturthi Snapchat Lens"
+            />
+            <div class="project-content">
+              <h3>Viral AR Lens (10.9k+ Views)</h3>
+              <p>
+                Developed and published a festive Snapchat lens for Vinayaka
+                Chaturthi that achieved over 10,900 organic views, demonstrating
+                proficiency in creating engaging, shareable AR content for a
+                broad audience.
+              </p>
+              <div class="project-tags">
+                <span>Lens Studio</span><span>AR Development</span
+                ><span>Blender</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=052f1e0fdb884b4997e10066d7fe73fb&metadata=01"
+                  target="_blank"
+                  >View Snapcode</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="https://via.placeholder.com/400x200.png/00A79D/FFFFFF?text=AI+Face+Detector"
+              alt="AI vs Real Face Detection Project"
+            />
+            <div class="project-content">
+              <h3>AI-Generated Image Detector</h3>
+              <p>
+                Engineered and trained a deep learning model in Python to
+                classify images as either real human faces or AI-generated
+                fakes. This project showcases advanced image processing and
+                model deployment skills.
+              </p>
+              <div class="project-tags">
+                <span>Python</span><span>Deep Learning</span
+                ><span>Image Processing</span>
+              </div>
+              <div class="project-links"></div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="https://via.placeholder.com/400x200.png/00A79D/FFFFFF?text=Credit+Card+Fraud+Model"
+              alt="Credit Card Fraud Detection Project"
+            />
+            <div class="project-content">
+              <h3>Credit Card Fraud Detection Model</h3>
+              <p>
+                Built a predictive machine learning model using R to identify
+                fraudulent credit card transactions. The process involved
+                rigorous data cleaning, feature engineering, and performance
+                tuning to achieve high accuracy.
+              </p>
+              <div class="project-tags">
+                <span>R Programming</span><span>Machine Learning</span
+                ><span>Data Analysis</span>
+              </div>
+              <div class="project-links"></div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="https://via.placeholder.com/400x200.png/00A79D/FFFFFF?text=Community+Pulse"
+              alt="Community Pulse Project Screenshot"
+            />
+            <div class="project-content">
+              <h3>Community Pulse (Hackathon Project)</h3>
+              <p>
+                A full-stack event management platform to help users discover
+                and book tickets for local events. It features location-based
+                recommendations and provides full CRUD functionality for event
+                organizers.
+              </p>
+              <div class="project-tags">
+                <span>Full-Stack</span><span>Python</span
+                ><span>Event Management</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/sreechakra180/Community-pulse-Team302-x-odoo"
+                  target="_blank"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>
+          I am actively exploring internship roles and am available for a
+          discussion. Let's connect.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:miriyalaanirudh25@gmail.com">Email</a>
+          <a
+            href="https://www.linkedin.com/in/anirudh-miriyala-b49aab2a6/"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a href="https://github.com/anirudh-miriyala" target="_blank"
+            >GitHub</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Anirudh Miriyala | Built with Passion</p>
+    </footer>
+  </body>
+</html>
